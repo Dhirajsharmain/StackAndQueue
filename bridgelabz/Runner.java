@@ -1,6 +1,10 @@
 package bridgelabz;
 
 public class Runner {
+    /**
+     * Main method, It is the starting point of program.
+     * @param args
+     */
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<Integer>();
 
