@@ -1,5 +1,7 @@
 package bridgelabz;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList<T> {
     Node<T> head;
 
@@ -28,11 +30,13 @@ public class LinkedList<T> {
      */
     public void show() {
         Node<T> node = head;
-        while (node.next != null) {
+        if (node != null) {
+            while (node.next != null) {
+                System.out.println(node.data);
+                node = node.next;
+            }
             System.out.println(node.data);
-            node = node.next;
         }
-        System.out.println(node.data);
     }
 
     /**
@@ -70,13 +74,36 @@ public class LinkedList<T> {
     }
 
     /**
-     * Method for removing the first element from the list.
+     * retrieve or fetch the first element of the Stack and The element retrieved does not get deleted or removed from the Stack.
+     *
+     * @return
      */
-    public void pop() {
-        if (null != head) {
-            Node<T> newHead = head.next;
-            head = newHead;
-        }
+    public T peek() {
+        final Node<T> firstElement = head;
+        return (firstElement == null) ? null : firstElement.data;
+    }
+
+    /**
+     * Pop an element from the top of stack represented by this list. In other words,
+     * removes and returns the first element of this list
+     *
+     * @return : The element at the front of this list (which is the top of the stack
+     * represented by this list)
+     * @throws NoSuchElementException if this list is empty
+     */
+    public Node<T> pop() {
+        final Node<T> f = head;
+        if (f == null)
+            throw new NoSuchElementException();
+        return unlinkFirst(f);
+
+    }
+
+    public Node<T> unlinkFirst(Node<T> f) {
+        Node<T> removedItem = head;
+        Node<T> newHead = head.next;
+        head = newHead;
+        return removedItem;
     }
 
     /**
@@ -94,6 +121,7 @@ public class LinkedList<T> {
 
     /**
      * Method for searching the node by value.
+     *
      * @param value : Value to be searched
      * @return
      */
@@ -117,10 +145,11 @@ public class LinkedList<T> {
 
     /**
      * Method For search index by value and insert new data at next index.
+     *
      * @param searchValue: Data to be searched.
      * @param InsertValue: Data to be inserted.
      */
-    public void searchAndInsert(T searchValue, T InsertValue){
+    public void searchAndInsert(T searchValue, T InsertValue) {
         int index = searchByValue(searchValue) + 1;
         addAtIndex(index, InsertValue);
     }
@@ -144,15 +173,9 @@ public class LinkedList<T> {
         }
     }
 
-    public void searchValueAndDelete (T searchValue){
-        int index = searchByValue(searchValue);
-        popAtIndex(index);
-    }
-
     /**
      * Returns the size of elements in this list.
-     *
-     * @return
+     * @return : Count or size of list.
      */
     public int size() {
         Node<T> currNode = head;
