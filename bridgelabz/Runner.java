@@ -19,5 +19,18 @@ public class Runner {
             stack.pop();
             stack.show();
         }
+
+        /**
+         * Oueue Oprations Here
+         */
+
+        System.out.println();
+        System.out.println("Oueue Oprations Here : ");
+        Queue<Integer> queue = new Queue<Integer>();
+        queue.enqueue(56);
+        queue.enqueue(30);
+        queue.enqueue(70);
+        queue.show();
     }
+
 }

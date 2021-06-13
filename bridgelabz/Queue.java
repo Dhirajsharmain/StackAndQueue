@@ -1,4 +1,20 @@
 package bridgelabz;
 
-public class Queue {
+public class Queue<T> {
+    LinkedList<T> listObj = new LinkedList<T>();
+
+    /**
+     * Method for Adding elements to the queue.
+     * @param value : Data to be added
+     */
+    public void enqueue(T value) {
+        listObj.add(value);
+    }
+
+    /**
+     * Method for printing the data of queue till the last node's next element is null
+     */
+    public void show() {
+        listObj.show();
+    }
 }
