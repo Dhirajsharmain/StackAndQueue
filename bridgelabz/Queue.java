@@ -17,4 +17,13 @@ public class Queue<T> {
     public void show() {
         listObj.show();
     }
+
+    /**
+     *Method for dequeue or remove the element at the front of the queue.
+     * @return
+     */
+    public Node<T> dequeue() {
+        return listObj.pop();
+
+    }
 }

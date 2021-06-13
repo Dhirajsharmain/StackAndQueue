@@ -74,7 +74,7 @@ public class LinkedList<T> {
     }
 
     /**
-     * retrieve or fetch the first element of the Stack and The element retrieved does not get deleted or removed from the Stack.
+     * Retrieve or fetch the first element of the Stack and The element retrieved does not get deleted or removed from the Stack.
      *
      * @return
      */
@@ -84,12 +84,10 @@ public class LinkedList<T> {
     }
 
     /**
-     * Pop an element from the top of stack represented by this list. In other words,
-     * removes and returns the first element of this list
+     * Pop an element from the top of stack.
      *
-     * @return : The element at the front of this list (which is the top of the stack
-     * represented by this list)
-     * @throws NoSuchElementException if this list is empty
+     * @return : The element at the front of this list
+     * @throws NoSuchElementException : if this list is empty
      */
     public Node<T> pop() {
         final Node<T> f = head;
@@ -175,6 +173,7 @@ public class LinkedList<T> {
 
     /**
      * Returns the size of elements in this list.
+     *
      * @return : Count or size of list.
      */
     public int size() {
