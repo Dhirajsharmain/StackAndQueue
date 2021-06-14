@@ -90,16 +90,12 @@ public class LinkedList<T> {
      * @throws NoSuchElementException : if this list is empty
      */
     public Node<T> pop() {
-        final Node<T> f = head;
-        if (f == null)
+        final Node<T> first = head;
+        if (first == null)
             throw new NoSuchElementException();
-        return unlinkFirst(f);
 
-    }
-
-    public Node<T> unlinkFirst(Node<T> f) {
-        Node<T> removedItem = head;
-        Node<T> newHead = head.next;
+        Node<T> removedItem = first;
+        Node<T> newHead = first.next;
         head = newHead;
         return removedItem;
     }
